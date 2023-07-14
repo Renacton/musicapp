@@ -1,10 +1,24 @@
 .close-icon {
     font-size: 40px;
-    color: red;
+    color: var(--ion-color-danger);
     display: block;
     margin-left: auto;
+    
 }
 
-.my-fav-text-color {
-    color: var(--my-fav-text-color);
+.iconoComplementario {
+    color: var(--ion-color-warning)
+}
+
+.estiloTitulo {
+    color: var(--my-title-text-color);
+    font-size: 70px;
   }
+
+.estiloParrafo {
+    color: var(--my-text-color);
+}
+
+.estiloFondo {
+    background-color: var(--my-background-color);
+}

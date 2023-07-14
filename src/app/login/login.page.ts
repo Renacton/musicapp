@@ -13,8 +13,12 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   validation_messages = {
     email: [
-      { type: "required", message: "El email es obligatorio" },
+      { type: "required", message: "Este campo es obligatorio" },
       { type: "pattern", message: "Debe poner un email valido" }
+    ],
+    password: [
+      { type: "required", message: "Este campo es obligatorio" },
+      { type: "minLength", message: "tu contraseña debe tener por lo menos 6 digitos" }
     ]
   }
 
