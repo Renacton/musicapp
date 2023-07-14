@@ -52,6 +52,7 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+
   loginUser(credentials: any){
     console.log(credentials);
     this.authService.loginUser(credentials).then(res => {
@@ -62,6 +63,10 @@ export class LoginPage implements OnInit {
       this.errorMessage = err;
       console.log(this.errorMessage);
     })
+  }
+  
+  goToRegister(){
+    this.navCtrl.navigateForward("/register")
   }
 
 }
