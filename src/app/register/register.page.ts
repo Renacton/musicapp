@@ -10,6 +10,32 @@ import { AuthenticateService } from '../services/authenticate.service';
 })
 export class RegisterPage implements OnInit {
   registerForm: FormGroup;
+
+  validation_messages = {
+    email: [
+      { type: "required", message: "*Este campo es obligatorio" },
+      { type: "pattern", message: "*Debe poner un email valido" },
+      { type: "maxlength", message: "*se excedio el limite de caracteres" }
+    ],
+    password: [
+      { type: "required", message: "*Este campo es obligatorio" },
+      { type: "minlength", message: "*Tu contraseña es muy corta" },
+      { type: "maxlength", message: "*se excedio el limite de caracteres" }
+    ],
+    name: [
+      { type: "required", message: "*Este campo es obligatorio" },
+      { type: "minlength", message: "*debes usar minimo 4 carcteres" },
+      { type: "pattern", message: "*tu nombre solo puede tener letras y numeros" },
+      { type: "maxlength", message: "*se excedio el limite de caracteres" }
+    ],
+    sur_name: [
+      { type: "required", message: "*Este campo es obligatorio" },
+      { type: "minlength", message: "*debes usar minimo 4 caracteres" },
+      { type: "pattern", message: "*tu apellido solo puede tener letras y numeros" },
+      { type: "maxlength", message: "*se excedio el limite de caracteres" }
+    ]
+  }
+
   constructor(
     private navCtrl: NavController,
     private formBuilder: FormBuilder,
@@ -22,7 +48,8 @@ export class RegisterPage implements OnInit {
           Validators.compose(
             [
               Validators.required,
-              Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9_.+-]+.[a-zA-Z0-9.-]+$")
+              Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9_.+-]+.[a-zA-Z0-9.-]+$"),
+              Validators.maxLength(320)
           ]
           )
         ),
@@ -31,6 +58,7 @@ export class RegisterPage implements OnInit {
           Validators.compose(
             [
               Validators.required,
+              Validators.maxLength(32),
               Validators.minLength(6)
             ]
           )
@@ -39,16 +67,20 @@ export class RegisterPage implements OnInit {
           "",
           Validators.compose(
             [
+              Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
               Validators.required,
+              Validators.maxLength(32),
               Validators.minLength(6)
             ]
           )
         ),
-        last_name: new FormControl(
+        sur_name: new FormControl(
           "",
           Validators.compose(
             [
+              Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
               Validators.required,
+              Validators.maxLength(32),
               Validators.minLength(6)
             ]
           )

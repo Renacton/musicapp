@@ -11,14 +11,17 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
+
   validation_messages = {
     email: [
-      { type: "required", message: "Este campo es obligatorio" },
-      { type: "pattern", message: "Debe poner un email valido" }
+      { type: "required", message: "*Este campo es obligatorio" },
+      { type: "pattern", message: "*Debe poner un email valido" },
+      { type: "maxlength", message: "*se excedio el limite de caracteres" }
     ],
     password: [
-      { type: "required", message: "Este campo es obligatorio" },
-      { type: "minLength", message: "tu contraseña debe tener por lo menos 6 digitos" }
+      { type: "required", message: "*Este campo es obligatorio" },
+      { type: "minlength", message: "*Tu contraseña es muy corta" },
+      { type: "maxlength", message: "*se excedio el limite de caracteres" }
     ]
   }
 
@@ -37,7 +40,8 @@ export class LoginPage implements OnInit {
           Validators.compose(
             [
               Validators.required,
-              Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9_.+-]+.[a-zA-Z0-9.-]+$")
+              Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9_.+-]+.[a-zA-Z0-9.-]+$"),
+              Validators.maxLength(320)
             ]
           )
         ),
@@ -46,7 +50,8 @@ export class LoginPage implements OnInit {
           Validators.compose(
             [
               Validators.required,
-              Validators.minLength(6)
+              Validators.minLength(6),
+              Validators.maxLength(32)
             ]
           )
         )

@@ -1,64 +1,80 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title class="ion-text-center">LOGIN</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+<div class="container">
+  <div class="screen">
+    <div class="screen__content">
+      <ion-content>
+        <form class="login" [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
 
-    <ion-item>
-      <ion-input label="Email" labelPlacement="floating" placeholder="name@example.com" formControlName="email"></ion-input>
-    </ion-item>
+          <div class="login__field">
+            <ion-item>
+              <ion-icon name="person-circle-outline"></ion-icon>
+              <ion-input class="login__input" label="Email" labelPlacement="floating"
+                formControlName="email"></ion-input>
+            </ion-item>
 
-    <div class="validation-erros">
-      <ng-container *ngFor="let validation of validation_messages.email">
-        <div *ngIf="(
-          loginForm.get('email')?.hasError(validation.type) && 
-          loginForm.get('email')?.dirty) 
-        ">
-          {{validation.message}}
-        </div>
-        
-      </ng-container>
+            <div class="validation-erros">
+              <ng-container *ngFor="let validation of validation_messages.email">
+                <div class="ion-text-center" *ngIf="(
+                  loginForm.get('email')?.hasError(validation.type) && 
+                  loginForm.get('email')?.dirty) 
+                ">
+                  <p class="validation_style">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    {{validation.message}}
+                  </p>
+                </div>
+
+              </ng-container>
+            </div>
+          </div>
+
+          <div class="login__field">
+            <ion-item>
+              <ion-icon name="key-outline"></ion-icon>
+              <ion-input class="login__input" label="Password" labelPlacement="floating"
+                formControlName="password"></ion-input>
+            </ion-item>
+            <div class="validation-erros">
+              <ng-container *ngFor="let validation of validation_messages.password">
+                <div class="ion-text-center" *ngIf="(
+                  loginForm.get('password')?.hasError(validation.type) &&
+                  loginForm.get('password')?.dirty) 
+                ">
+                  <p class="validation_style">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                    {{validation.message}}
+                  </p>
+                </div>
+
+              </ng-container>
+            </div>
+          </div>
+
+          <ion-button expand="full" shape="round" color="secondary" [disabled]="!loginForm.valid" type="submit">
+            <p>
+              ingresar
+            </p>
+          </ion-button>
+
+        </form>
+
+        <ion-footer>
+          <p class="ion-text-capitalize ion-text-center">
+            No tienes cuenta?
+          </p>
+          <ion-button class="ion-text-lowercase" expand="full" shape="round" color="success" (click)="goToRegister()">
+            <p>
+              registrate
+            </p>
+          </ion-button>
+        </ion-footer>
+
+      </ion-content>
     </div>
-    
-    <ion-item>
-      <ion-input label="Password" type="password" labelPlacement="floating" placeholder="*******" formControlName="password"></ion-input>
-    </ion-item>
-
-    <div class="validation-erros">
-      <ng-container *ngFor="let validation of validation_messages.password">
-        <div *ngIf="(
-          loginForm.get('password')?.hasError(validation.type) && 
-          loginForm.get('password')?.dirty) 
-        ">
-          {{validation.message}}
-        </div>
-        
-      </ng-container>
-    </div>
-
-    <ion-button
-    expand="full"
-    shape="round"
-    color="secondary"
-    [disabled]="!loginForm.valid"
-    type="submit"
-    >
-      ingresar
-    </ion-button>
-
-  </form>
-  <ion-footer>
-    <ion-button
-    expand="full"
-    shape="round"
-    color="success"
-    (click)="goToRegister()"
-    >
-      Registrate
-    </ion-button>
-  </ion-footer>
-
-</ion-content>
+  </div>
+</div>
