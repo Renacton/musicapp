@@ -1,16 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <body class="background">
-    <ion-icon name="musical-notes" class="start-icon"></ion-icon>
-    <p class="bottom-paragraph">
-      CON MUSICAPP ESCUCHAR MUSICA NO TIENE LIMITE! 
-    </p>
-  </body>
+  <h1>Artistas</h1>
+  <swiper-container
+  [initialSlide]="0"
+  [slidesPerView]="3"
+  *ngIf="artists?.length > 0"
+  >
+    <swiper-slide *ngFor="let artist of artists">
+      <ion-avatar>
+        <img src="{{artist.image}}" />
+        <span>{{artist.name}}</span>
+      </ion-avatar>
+    </swiper-slide>
+  </swiper-container>
 </ion-content>
