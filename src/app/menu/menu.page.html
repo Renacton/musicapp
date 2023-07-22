@@ -10,9 +10,18 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
+
     <ion-content>
-      
+      <ion-item (click)="goToHome()">
+        <ion-icon name="home"></ion-icon>
+        Inicio
+      </ion-item>
+      <ion-item (click)="goToSettings()">
+        <ion-icon name="settings"></ion-icon>
+        Configuración
+      </ion-item>
     </ion-content>
+
     <ion-footer >
         <ion-item (click)="logout()">
           <ion-icon name="log-in-outline"></ion-icon> 
