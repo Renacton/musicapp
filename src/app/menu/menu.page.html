@@ -12,6 +12,10 @@
     </ion-header>
 
     <ion-content>
+      <ion-item (click)="goToIntro()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Intro
+      </ion-item>
       <ion-item (click)="goToHome()">
         <ion-icon name="home"></ion-icon>
         Inicio
@@ -22,12 +26,13 @@
       </ion-item>
     </ion-content>
 
-    <ion-footer >
-        <ion-item (click)="logout()">
-          <ion-icon name="log-in-outline"></ion-icon> 
-          Cerrar Session
+    <ion-footer>
+      <ion-item (click)="logout()">
+        <ion-icon name="log-in-outline"></ion-icon>
+        Cerrar Session
       </ion-item>
     </ion-footer>
+    
   </ion-menu>
   <ion-router-outlet id="content" main></ion-router-outlet>
 </ion-split-pane>

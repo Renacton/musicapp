@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,8 @@ export class MenuPage implements OnInit {
 
   constructor(
     private menu: MenuController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private storage: Storage
     ) { }
 
   ngOnInit() {
@@ -22,6 +24,7 @@ export class MenuPage implements OnInit {
 
   logout(){
     this.navCtrl.navigateRoot('/login');
+    this.storage.set("isUserLoggedIn", false);
   }
 
   goToSettings(){
@@ -33,4 +36,10 @@ export class MenuPage implements OnInit {
     this.navCtrl.navigateForward('menu/home');
     this.menu.close();
   }
+
+  goToIntro(){
+    this.navCtrl.navigateForward('/intro');
+    this.menu.close();
+  }
+
 }
