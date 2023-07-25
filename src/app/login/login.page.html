@@ -4,13 +4,13 @@
   </ion-toolbar>
 </ion-header>
 
-<div class="container">
+<div class="container background-login">
   <div class="screen">
     <div class="screen__content">
       <ion-content>
         <form class="login" [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
 
-          <div class="login__field">
+          <div class="login__field background-login">
             <ion-item>
               <ion-icon name="person-circle-outline"></ion-icon>
               <ion-input class="login__input" label="Email" labelPlacement="floating"
@@ -33,7 +33,7 @@
             </div>
           </div>
 
-          <div class="login__field">
+          <div class="login__field background-login">
             <ion-item>
               <ion-icon name="key-outline"></ion-icon>
               <ion-input class="login__input" type="password" label="Password" labelPlacement="floating"
