@@ -1,6 +1,6 @@
 .background{
-  font-family: Verdana, sans-serif;
-  background-image: url(download.jpg);
+  background-image: url(back-ground.jpg);
+  background-color: #ac0b4c;
 }
 
 ion-menu-button, h1{
@@ -35,4 +35,18 @@ swiper-slide {
 
 .album-style {
   --border-radius: 4px;
+}
+
+ion-grid {
+  background-color: #101c24;
+}
+
+.screen {
+  padding-left: 10px;
+  padding-top: 40px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid white;
 }

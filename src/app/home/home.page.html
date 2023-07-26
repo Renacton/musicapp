@@ -12,12 +12,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background">
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button tab="home">
+        <ion-icon name="play-circle"></ion-icon>
+        Listen Now
+      </ion-tab-button>
+      <ion-tab-button tab="radio">
+        <ion-icon name="radio"></ion-icon>
+        Radio
+      </ion-tab-button>
+      <ion-tab-button tab="library">
+        <ion-icon name="library"></ion-icon>
+        Library
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 
-  <div>
-    <h1>Mi musica</h1>
-
-    <h2>Sigue escuchando</h2>
+  <div class="screen">
+    <h1>Tu musica ♪</h1>
+    <h2>Sigue escuchando:</h2>
     <swiper-container [initialSlide]="0" [slidesPerView]="3" *ngIf="artists?.length > 0">
       <swiper-slide *ngFor="let artist of artists">
         <ion-avatar (click)="showSongs(artist)">
@@ -26,11 +41,27 @@
         </ion-avatar>
       </swiper-slide>
     </swiper-container>
-    <p class="ion-text-right" style="padding-right: 20px; color: rgb(36, 107, 139)">Ver mas</p>
+    <p class="ion-text-right" style="padding-right: 20px; color: rgb(36, 107, 139)">
+      Ver mas >
+    </p>
+    <hr>
 
-    <h2>Listas de reproduccion</h2>
+    <h2>Tus listas de reproduccion:</h2>
+    <swiper-container [initialSlide]="0" [slidesPerView]="3" *ngIf="albums?.length > 0">
+      <swiper-slide *ngFor="let album of albums">
+        <ion-avatar class="album-style" (click)="showAlbumSongs(album)">
+          <img src="{{album.image}}" />
+          <span>{{album.name}}</span>
+        </ion-avatar>
+      </swiper-slide>
+    </swiper-container>
+    <p class="ion-text-right" style="padding-right: 20px; color: rgb(36, 107, 139)">
+      Ver mas >
+    </p>
+    <hr>
   </div>
-  <div>
+
+  <div style="padding-left: 10px;">
     <h1>Explorar musica</h1>
     <h2>Artistas</h2>
     <swiper-container [initialSlide]="0" [slidesPerView]="3" *ngIf="artists?.length > 0">
@@ -41,7 +72,10 @@
         </ion-avatar>
       </swiper-slide>
     </swiper-container>
-    <p class="ion-text-right" style="padding-right: 20px; color: rgb(36, 107, 139)">Ver mas</p>
+    <p class="ion-text-right" style="padding-right: 20px; color: rgb(36, 107, 139)">
+      Ver mas >
+    </p>
+    <hr>
 
     <h2>Albumes</h2>
     <swiper-container [initialSlide]="0" [slidesPerView]="3" *ngIf="albums?.length > 0">
@@ -52,7 +86,10 @@
         </ion-avatar>
       </swiper-slide>
     </swiper-container>
-    <p class="ion-text-right" style="padding-right: 20px; color: rgb(36, 107, 139)">Ver mas</p>
+    <p class="ion-text-right" style="padding-right: 20px; color: rgb(36, 107, 139)">
+      Ver mas >
+    </p>
+    <hr>
 
     <h2>Artistas Locales</h2>
     <swiper-container [initialSlide]="0" [slidesPerView]="3" *ngIf="artists?.length > 0">
@@ -63,7 +100,9 @@
         </ion-avatar>
       </swiper-slide>
     </swiper-container>
-    <p class="ion-text-right" style="padding-right: 20px; color: rgb(36, 107, 139)">Ver mas</p>
+    <p class="ion-text-right" style="padding-right: 20px; color: rgb(36, 107, 139)">
+      Ver mas >
+    </p>
   </div>
 </ion-content>
 

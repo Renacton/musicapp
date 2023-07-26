@@ -67,7 +67,7 @@ export class RegisterPage implements OnInit {
           "",
           Validators.compose(
             [
-              Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
+              Validators.pattern('[A-Za-z]{1,32}'),
               Validators.required,
               Validators.maxLength(32),
               Validators.minLength(6)
@@ -78,7 +78,7 @@ export class RegisterPage implements OnInit {
           "",
           Validators.compose(
             [
-              Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
+              Validators.pattern('[A-Za-z]{1,32}'),
               Validators.required,
               Validators.maxLength(32),
               Validators.minLength(6)
@@ -97,9 +97,10 @@ export class RegisterPage implements OnInit {
   }
 
   registerUser(userData:any){
-    console.log(userData)
-    this.authService.registerUser(userData).then(() => {
-      this.navCtrl.navigateBack("/login")
+    console.log(userData);
+    this.authService.registerUser(userData).subscribe(res => {
+      console.log(res)
+      this.navCtrl.navigateBack("/login");
     })
   }
 

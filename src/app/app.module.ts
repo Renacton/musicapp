@@ -7,6 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 
 @NgModule({
   schemas: [
@@ -17,7 +18,8 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule, 
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    HttpClientModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent]
